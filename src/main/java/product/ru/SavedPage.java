@@ -18,6 +18,8 @@ public class SavedPage extends BasePage {
     public SelenideElement priceItem = basketItemPrice.$(".basket-items-list-item-price basket-items-list-item-price-for-one");
     public SelenideElement priceItemForOne = priceItem.$(".basket-item-price-current-text");
     public SelenideElement buttonSaved = $(By.xpath("//span[@class='js-basket-block']/ancestor::a"));
+    public SelenideElement labelCount = $$(".basket-coupon-block-total-price-current").get(0);
+
 
 
 

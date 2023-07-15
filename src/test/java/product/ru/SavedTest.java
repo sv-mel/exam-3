@@ -42,21 +42,21 @@ public class SavedTest extends BaseTest {
         });
 
         step("Проверить title для кнопки Отложенные", () -> {
-        String title = savedPage.buttonSaved.getAttribute("title");
+            String title = savedPage.buttonSaved.getAttribute("title");
         });
 
         step("Проверить, что заголовок страницы Корзина", () -> {
-        savedPage.headerPage.shouldHave(text("Корзина"));
+            savedPage.headerPage.shouldHave(text("Корзина"));
         });
 
         step("Проверить, что отложенные не учитываются в подсчете стоимости корзины", () -> {
-        $$(".basket-coupon-block-total-price-current").get(0).shouldHave(text("0 руб."));
+            savedPage.labelCount.shouldHave(text("0 руб."));
         });
 
         step("Проверить, что добавив к заказу отложенный товар, стоимость корзины пересчитывается", () -> {
-        String str = $$(".basket-item-price-current-text").get(1).getText();
-        $(byText("Добавить к заказу?")).click();
-        $$(".basket-coupon-block-total-price-current").get(0).shouldHave(text(str));
+            String str = $$(".basket-item-price-current-text").get(1).getText();
+            $(byText("Добавить к заказу?")).click();
+            $$(".basket-coupon-block-total-price-current").get(0).shouldHave(text(str));
         });
 
     }
